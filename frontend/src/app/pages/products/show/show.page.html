@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ product?.name }}
+    </ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/products"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-list-header>List Notes</ion-list-header> -->
+    <ion-item>
+      <ion-label>{{ product?.id }}</ion-label>
+      <ion-note slot="end">ID</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>{{ product?.name }}</ion-label>
+        <ion-note slot="end">NOMBRE</ion-note>
+      </ion-item>
+</ion-content>

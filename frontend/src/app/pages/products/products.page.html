@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Products
+    </ion-title>      
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <ion-list *ngFor="let product of products">
+      <ion-item detail [routerLink]=" '/products/' + product.id">
+        <ion-label>
+          {{ product.name }}
+        </ion-label>
+      </ion-item>
+  </ion-list>
+</ion-content>
