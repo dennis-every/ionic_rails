@@ -1,3 +1,29 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>appName</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <br>
+          <ion-item lines="none" routerLink="/products/new">
+            <ion-icon name="business" slot="start"></ion-icon>
+            <ion-label>Products</ion-label>
+          </ion-item>
+        </ion-menu-toggle>               
+        <ion-menu-toggle>     
+          <br>
+          <ion-item lines="none">
+            <ion-icon name="people" slot="start"></ion-icon>
+            <ion-label>Customers</ion-label>
+          </ion-item>        
+          <br>
+        </ion-menu-toggle> 
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>
