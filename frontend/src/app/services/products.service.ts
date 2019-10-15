@@ -17,37 +17,33 @@ export class ProductsService {
   }
 
   // index (list)
-  public getProducts(path) {
+  public index(path) {
     const endpoint = this.API_URL + path;
     return this.http.get(endpoint);
   }
 
   // show (read)
-  public getProduct(path) {
+  public show(path) {
     const endpoint = this.API_URL + path;
     return this.http.get(endpoint);
   }
 
-
-
   // create method
-  public post(path:string,body:any) {
-
-      var endpoint = this.API_URL + path;
-      return this.http.post(endpoint,body);
-
+  public create(path: string, name: string) {
+      const endpoint = this.API_URL + path;
+      return this.http.post(endpoint, name);
   }
+
   // delete method
-  public delete(path:string){
-
-    var endpoint = this.API_URL + path;
+  public delete(path: string) {
+    const endpoint = this.API_URL + path;
     return this.http.delete(endpoint);
-
   }
+
   // update method
-  public update(path:string, body:any){
-    var endpoint = this.API_URL + path;
-    return this.http.put(endpoint,body);
+  public update(path: string, body: any ) {
+    const endpoint = this.API_URL + path;
+    return this.http.put(endpoint, body);
   }
 
 }

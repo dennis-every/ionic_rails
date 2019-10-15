@@ -20,7 +20,7 @@ export class ShowPage implements OnInit {
   }
 
   loadProduct() {
-    this.productsService.getProduct('products/' + this.id).subscribe((data: Product) => {
+    this.productsService.show('products/' + this.id).subscribe((data: Product) => {
       this.product = data;
     });
   }

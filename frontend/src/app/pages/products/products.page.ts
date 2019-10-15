@@ -14,7 +14,7 @@ export class ProductsPage implements OnInit {
   constructor(public productsService: ProductsService, public router: Router) { }
 
   ngOnInit() {
-    this.productsService.getProducts('products').subscribe((data: Product[] ) => {
+    this.productsService.index('products').subscribe((data: Product[] ) => {
       this.products = data;
     });
   }
