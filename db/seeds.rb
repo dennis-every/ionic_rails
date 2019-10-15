@@ -6,9 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.create!([
-  { name: 'Product 001' },
-  { name: 'Product 002' },
-  { name: 'Product 003' },
-  { name: 'Product 004' }
+# Product.create!([
+#   { name: 'Product 001' },
+#   { name: 'Product 002' },
+#   { name: 'Product 003' },
+#   { name: 'Product 004' }
+# ])
+
+
+Customer.create!([
+  { first_name: 'John', last_name: 'Doe' },
+  { first_name: 'Jane', last_name: 'Doe' },
+  { first_name: 'Joe', last_name: 'Doe' },
 ])
