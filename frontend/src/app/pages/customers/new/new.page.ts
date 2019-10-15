@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { CustomersService } from '../../../services/customers.service';
 
@@ -11,6 +11,7 @@ import { CustomersService } from '../../../services/customers.service';
   styleUrls: ['./new.page.scss'],
 })
 export class NewPage implements OnInit {
+  form: FormGroup;
 
   constructor(
     private router: Router,
@@ -19,20 +20,28 @@ export class NewPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      first_name: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required, Validators.minLength(6)]
+      }),
+      last_name: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required, Validators.minLength(6)]
+      })
+    });
   }
 
 
   onCreate() {
-    console.log('Created!');
+    console.log(this.form);
   }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
       return;
     }
-    const fname = form.value.fname;
-    // const lname = form.value.lname;
-    console.log(fname);
+    console.log(this.form);
   }
 
 }

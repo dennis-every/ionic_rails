@@ -7,7 +7,7 @@
         New Customer
       </ion-title>
       <ion-buttons slot="primary">
-        <ion-button (click)="onCreate()" [disabled]="!f.valid">
+        <ion-button (click)="onCreate()" [disabled]="!form.valid">
           <ion-icon name="checkmark-circle-outline" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -15,7 +15,7 @@
   </ion-header>
 
   <ion-content>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <form [formGroup]="form">
       <ion-grid>
           <ion-row>
             <ion-col size-sm="6" offset-sm="3">
@@ -25,16 +25,14 @@
                   <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
                   <ion-input
                   type="text"
-                  ngModel
-                  name="fname"
-                  required
-                  #fnameCtrl="ngModel"
-                  minlength="6"
+                  autocomplete
+                  autocorrect
+                  formControlName="first_name"
                   ></ion-input>
                 </ion-item>
 
                 <ion-item
-                  *ngIf="!fnameCtrl.valid && fnameCtrl.touched"
+                  *ngIf="!form.get('first_name').valid && form.get('first_name').touched"
                   lines="none"
                   >
                   <ion-text color="danger">
@@ -46,16 +44,12 @@
                   <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
                   <ion-input
                   type="text"
-                  ngModel
-                  name="lname"
-                  required
-                  #lnameCtrl="ngModel"
-                  minlength="6"
+                  formControlName="last_name"
                   ></ion-input>
                 </ion-item>
 
                 <ion-item
-                  *ngIf="!lnameCtrl.valid && lnameCtrl.touched"
+                  *ngIf="!form.get('last_name').valid && form.get('last_name').touched"
                   lines="none"
                   >
                   <ion-text color="danger">
@@ -70,10 +64,10 @@
           <ion-row>
             <ion-col size-sm="6" offset-sm="3">
               <ion-button
-                type="submit"
                 color="primary"
                 expand="block"
-                [disabled]="!f.valid"
+                [disabled]="!form.valid"
+                (click)="onCreate()" 
               >
               Create
             </ion-button>
