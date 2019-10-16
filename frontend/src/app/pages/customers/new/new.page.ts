@@ -29,6 +29,10 @@ export class NewPage implements OnInit {
       last_name: new FormControl(null, {
         updateOn: 'change',
         validators: [Validators.required, Validators.minLength(6)]
+      }),
+      phone: new FormControl(null, {
+        updateOn: 'change',
+        validators: [Validators.required, Validators.minLength(6)]
       })
     });
   }

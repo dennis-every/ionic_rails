@@ -61,6 +61,25 @@
                       <span>Last Name must have at least 6 characters</span>
                     </ion-text>
                   </ion-item>
+
+                  <ion-item>
+                      <ion-label position="floating">Phone <ion-text color="danger">*</ion-text></ion-label>
+                      <ion-input
+                      type="phone"
+                      *ngIf="customer"
+                      formControlName="phone"
+                      [(ngModel)]="customer.phone"
+                      ></ion-input>
+                    </ion-item>
+    
+                    <ion-item
+                      *ngIf="!form.get('phone').valid && form.get('phone').touched"
+                      lines="none"
+                      >
+                      <ion-text color="danger">
+                        <span>Phone must have at least 6 characters</span>
+                      </ion-text>
+                    </ion-item>
   
                 </ion-list>
               </ion-col>
