@@ -13,7 +13,10 @@ export class CustomersPage implements OnInit {
 
   constructor(public customersService: CustomersService, public router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() { this.loadData(); }
+  ionViewWillEnter() { this.loadData(); }
+
+  loadData() {
     this.customersService.index('customers').subscribe((data: Customer[] ) => {
       this.customers = data;
     });

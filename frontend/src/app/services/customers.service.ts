@@ -43,9 +43,14 @@ export class CustomersService {
   }
 
   // delete method
-  public delete(path: string) {
-    const endpoint = this.API_URL + path;
-    return this.http.delete(endpoint);
+  public delete(id: number) {
+    const endpoint = this.API_URL + this.actionPath + '/' + id;
+    return this.http.delete(endpoint).pipe(
+      catchError(error => {
+        console.log(error.message);
+        throw new Error(error);
+      })
+    );
   }
 
   // update method

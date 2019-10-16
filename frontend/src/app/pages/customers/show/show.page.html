@@ -6,9 +6,9 @@
       <ion-title>
         Customer
       </ion-title>      
-      <ion-buttons slot="end" [routerLink]=" '/customers/edit/' + customer?.id   " routerDirection='forward'>
+      <ion-buttons slot="end" (click)="presentAlertConfirm()">
         <ion-button>
-          <ion-icon name="create"></ion-icon>
+          <ion-icon name="trash"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
@@ -24,4 +24,11 @@
           <ion-label>{{ customer?.first_name }} {{ customer?.last_name}}</ion-label>
           <ion-note slot="end">NAME</ion-note>
         </ion-item>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button [routerLink]=" '/customers/edit/' + customer?.id   " routerDirection='forward' color="primary">
+            <ion-icon name="create" class='fab-button'></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+
   </ion-content>
