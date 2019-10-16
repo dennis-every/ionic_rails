@@ -1,11 +1,16 @@
 <ion-header>
     <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/customers"></ion-back-button>
+      </ion-buttons>
       <ion-title>
         Customer
-      </ion-title>
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="/customers"></ion-back-button>
-        </ion-buttons>
+      </ion-title>      
+      <ion-buttons slot="end" [routerLink]=" '/customers/edit/' + customer?.id   " routerDirection='forward'>
+        <ion-button>
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 

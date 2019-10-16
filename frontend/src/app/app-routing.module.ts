@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: 'products/new', loadChildren: './pages/products/new/new.module#NewPageModule' },
   { path: 'products/:id', loadChildren: './pages/products/show/show.module#ShowPageModule' },
   { path: 'customers', loadChildren: './pages/customers/customers.module#CustomersPageModule' },
-  { path: 'customers/new', loadChildren: './pages/customers/new/new.module#NewPageModule' },
-  { path: 'customers/:id', loadChildren: './pages/customers/show/show.module#ShowPageModule' },
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import { LoadingController } from '@ionic/angular';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { CustomersService } from '../../../services/customers.service';
+import { Customer } from '../../../interfaces/customer';
 
 @Component({
   selector: 'app-new',
@@ -34,14 +35,9 @@ export class NewPage implements OnInit {
 
 
   onCreate() {
-    console.log(this.form);
-  }
-
-  onSubmit(form: NgForm) {
-    if (!form.valid) {
-      return;
-    }
-    console.log(this.form);
+    this.customersService.create(this.form.value).subscribe( res  => {
+      this.router.navigateByUrl('/customers/' + (res as Customer).id);
+    });
   }
 
 }

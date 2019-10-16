@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../interfaces/customer';
+import {tap, map, catchError} from 'rxjs/operators';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomersService {
   public customers: Customer[] = [];
-  API_URL = 'http://localhost:3000/';
+  API_URL = environment.API_URL;
+  actionPath = 'customers';
   public loaded = false;
 
   constructor(public http: HttpClient) { }
@@ -29,9 +32,14 @@ export class CustomersService {
   }
 
   // create method
-  public create(path: string, name: string) {
-      const endpoint = this.API_URL + path;
-      return this.http.post(endpoint, name);
+  public create(customer: Customer) {
+      const endpoint = this.API_URL + this.actionPath;
+      return this.http.post(endpoint, customer).pipe(
+        catchError(error => {
+          console.log(error.message);
+          throw new Error(error);
+        })
+      );
   }
 
   // delete method
@@ -41,9 +49,14 @@ export class CustomersService {
   }
 
   // update method
-  public update(path: string, body: any ) {
-    const endpoint = this.API_URL + path;
-    return this.http.put(endpoint, body);
+  public update(customer: Customer, id: number) {
+    const endpoint = this.API_URL + this.actionPath + '/' + id;
+    return this.http.put(endpoint, customer).pipe(
+      catchError(error => {
+        console.log(error.message);
+        throw new Error(error);
+      })
+    );
   }
 
 }

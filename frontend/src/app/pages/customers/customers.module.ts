@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: '',
     component: CustomersPage
-  }
+  },
+
+  { path: 'new', loadChildren: './pages/customers/new/new.module#NewPageModule' },
+  { path: 'edit/:id', loadChildren: './pages/customers/edit/edit.module#EditPageModule' },
+  { path: ':id', loadChildren: './pages/customers/show/show.module#ShowPageModule' },
 ];
 
 @NgModule({
