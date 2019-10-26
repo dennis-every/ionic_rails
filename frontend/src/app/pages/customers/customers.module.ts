@@ -12,7 +12,6 @@ const routes: Routes = [
     path: '',
     component: CustomersPage
   },
-
   { path: 'new', loadChildren: './new/new.module#NewPageModule' },
   { path: 'edit/:id', loadChildren: './edit/edit.module#EditPageModule' },
   { path: ':id', loadChildren: './show/show.module#ShowPageModule' },
